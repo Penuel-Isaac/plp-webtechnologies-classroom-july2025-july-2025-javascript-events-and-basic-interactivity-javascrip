@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive Web Page — Events & Validation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <div class="brand">DaiLer Interactive</div>
+      <nav class="top-nav">
+        <button id="darkToggle" class="btn">Toggle Dark</button>
+        <div class="dropdown">
+          <button id="dropBtn" class="btn">Menu ▾</button>
+          <div id="dropMenu" class="dropdown-menu hidden">
+            <a href="#features">Features</a>
+            <a href="#form">Form</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- KEY/HOVER STATUS -->
+    <section class="card" id="features">
+      <h2>Interactive Features</h2>
+
+      <!-- Feature 1: Click counter -->
+      <div class="feature">
+        <h3>Click Counter Game</h3>
+        <p>Click the button as many times as you like. Try pressing a keyboard key to see it appear below.</p>
+        <div class="controls">
+          <button id="clickBtn" class="btn large">Click me</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+        <div class="output" id="clickCount">Clicks: 0</div>
+      </div>
+
+      <!-- Feature 2: Hover box and keyboard -->
+      <div class="feature">
+        <h3>Hover & Keyboard</h3>
+        <div id="hoverBox" class="hover-box">Hover over me</div>
+        <p>Last key pressed: <span id="keyOutput">none</span></p>
+      </div>
+
+      <!-- Feature 3: Tabbed interface -->
+      <div class="feature">
+        <h3>Tabs (Flexbox)</h3>
+        <div class="tabs">
+          <div class="tab-buttons" role="tablist">
+            <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+            <button class="tab-btn" data-tab="tab2">Tab 2</button>
+            <button class="tab-btn" data-tab="tab3">Tab 3</button>
+          </div>
+          <div class="tab-panels">
+            <div id="tab1" class="tab-panel">Content for tab 1 (uses Flexbox inside)</div>
+            <div id="tab2" class="tab-panel hidden">Content for tab 2</div>
+            <div id="tab3" class="tab-panel hidden">Content for tab 3</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- COLLAPSIBLE FAQ -->
+    <section class="card" id="faq">
+      <h2>Collapsible FAQ</h2>
+      <div class="faq">
+        <button class="faq-q">What is this page?</button>
+        <div class="faq-a hidden">An interactive demo to practice JS events and validation.</div>
+
+        <button class="faq-q">How do I test the form?</button>
+        <div class="faq-a hidden">Fill the fields and press Submit. Errors will show below each field.</div>
+
+        <button class="faq-q">Can I toggle dark mode?</button>
+        <div class="faq-a hidden">Yes — use the Toggle Dark button in the header.</div>
+      </div>
+    </section>
+
+    <!-- FORM with validation -->
+    <section class="card" id="form">
+      <h2>Sign Up Form (Custom Validation)</h2>
+      <form id="signupForm" novalidate>
+        <label>Full Name
+          <input id="fullName" name="fullName" type="text" placeholder="Jane Doe" />
+          <div class="error" id="errName"></div>
+        </label>
+
+        <label>Email
+          <input id="email" name="email" type="email" placeholder="you@example.com" />
+          <div class="error" id="errEmail"></div>
+        </label>
+
+        <label>Password
+          <input id="password" name="password" type="password" placeholder="At least 8 chars, upper+lower+number+symbol" />
+          <div class="error" id="errPassword"></div>
+        </label>
+
+        <label>Confirm Password
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat password" />
+          <div class="error" id="errConfirm"></div>
+        </label>
+
+        <label>Phone (optional)
+          <input id="phone" name="phone" type="tel" placeholder="+234XXXXXXXXXX" />
+          <div class="error" id="errPhone"></div>
+        </label>
+
+        <div class="row">
+          <button type="submit" class="btn">Submit</button>
+          <button type="button" id="clearBtn" class="btn light">Clear</button>
+        </div>
+
+        <div id="formMessage" class="output hidden"></div>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Interactive page — demo of events & validation</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
